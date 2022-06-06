@@ -17,5 +17,11 @@ pipeline {
                 sh 'cd SampleWebApp && mvn package'
             }
         }
+        stage('Deploy to tomcat') {
+            steps {
+                deploy adapters: [tomcat9(credentialsId: 'tom-cred', path: '',
+                url: 'http://3.14.82.161:8080')], contextPath: 'default', war: '**/*war'
+            }
+        }
     }
 }
