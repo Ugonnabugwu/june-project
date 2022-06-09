@@ -26,7 +26,7 @@ pipeline {
             steps {
                 step([$class: 'AWSEBDeploymentBuilder', credentialId: 'aws-cred',
                 awsRegion: 'us-east-2', applicationName: 'june-app', environmentName: 'Juneapp-env1', keyPrefix: 'stage', sleepTime: 5,
-                bucketName: 'elasticbeanstalk-us-east-2-697102533223', rootObject: 'SampleWebApp/default/SampleWebApp-1.0.null.war', versionLabelFormat: 'Juneapp-env1-$BUILD_NUMBER'])
+                bucketName: 'elasticbeanstalk-us-east-2-697102533223', rootObject: 'SampleWebApp/target/SampleWebApp-1.0.null.war', versionLabelFormat: 'Juneapp-env1-$BUILD_NUMBER'])
                 
             }
         }
@@ -38,7 +38,7 @@ pipeline {
             steps {
                 step([$class: 'AWSEBDeploymentBuilder', credentialId: 'aws-cred',
                 awsRegion: 'us-east-2', applicationName: 'june-app', environmentName: 'Juneapp-env2', keyPrefix: 'prod', sleepTime: 5,
-                bucketName: 'elasticbeanstalk-us-east-2-697102533223', rootObject: 'SampleWebApp/default/SampleWebApp-1.0.null.war', versionLabelFormat: 'Juneapp-env2-$BUILD_NUMBER'])
+                bucketName: 'elasticbeanstalk-us-east-2-697102533223', rootObject: 'SampleWebApp/target/SampleWebApp-1.0.null.war', versionLabelFormat: 'Juneapp-env2-$BUILD_NUMBER'])
                 
             }
         }
