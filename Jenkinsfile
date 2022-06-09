@@ -25,20 +25,20 @@ pipeline {
                 }
             steps {
                 step([$class: 'AWSEBDeploymentBuilder', credentialId: 'aws-cred',
-                awsRegion: 'us-east-2', applicationName: 'tomcat-app', environmentName: 'staging-env', keyPrefix: 'stage', sleepTime: 5,
-                bucketName: 'elasticbeanstalk-us-east-2-855171129788', rootObject: 'SampleWebApp/target/SampleWebApp-1.0.null.war', versionLabelFormat: 'staging-$BUILD_NUMBER'])
+                awsRegion: 'us-east-2', applicationName: 'june-app', environmentName: 'Juneapp-env1', keyPrefix: 'stage', sleepTime: 5,
+                bucketName: 'elasticbeanstalk-us-east-2-697102533223', rootObject: 'SampleWebApp/default/SampleWebApp-1.0.null.war', versionLabelFormat: 'Juneapp-env1-$BUILD_NUMBER'])
                 
             }
         }
 
         stage('Deploy to Prod') {
              when {
-               branch "master"
+               branch "main"
                 }
             steps {
                 step([$class: 'AWSEBDeploymentBuilder', credentialId: 'aws-cred',
-                awsRegion: 'us-east-2', applicationName: 'tomcat-app', environmentName: 'production1', keyPrefix: 'prod', sleepTime: 5,
-                bucketName: 'elasticbeanstalk-us-east-2-855171129788', rootObject: 'SampleWebApp/target/SampleWebApp-1.0.null.war', versionLabelFormat: 'prod-$BUILD_NUMBER'])
+                awsRegion: 'us-east-2', applicationName: 'june-app', environmentName: 'Juneapp-env2', keyPrefix: 'prod', sleepTime: 5,
+                bucketName: 'elasticbeanstalk-us-east-2-697102533223', rootObject: 'SampleWebApp/default/SampleWebApp-1.0.null.war', versionLabelFormat: 'Juneapp-env2-$BUILD_NUMBER'])
                 
             }
         }
